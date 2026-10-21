@@ -1,0 +1,51 @@
+{
+  "name": "@signops/node",
+  "version": "0.1.0",
+  "description": "SignOps for Node.js: push notifications to Android, iOS and the web, push approval of logins, passkeys and webhooks.",
+  "license": "MIT",
+  "homepage": "https://signops.dev/docs/",
+  "author": "SignOps <hello@signops.dev>",
+  "keywords": [
+    "push notifications",
+    "fcm",
+    "apns",
+    "web push",
+    "passkeys",
+    "webauthn",
+    "push authentication",
+    "otp",
+    "signops"
+  ],
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json && node scripts/cjs.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.3"
+  }
+}
